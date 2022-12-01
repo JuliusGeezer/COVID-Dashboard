@@ -8,6 +8,7 @@ import os
 
 #Only works for worldometer. Enter worldometer url, an optional country name as a string, and an optional stat type such as "TotalDeaths". 
 #If country is None, returns all data. If stat is None, returns all stats
+#"https://www.worldometers.info/coronavirus/"
 def scrape_country(url,country=None,stat=None):
     #Only works for worldometer. Enter worldometer url, a country name as a string, and an optional stat type such as "TotalDeaths". 
     #If stat is None, returns all relevant stats
@@ -57,3 +58,5 @@ def scrape_country(url,country=None,stat=None):
         return data
     else:
         return data[stat]
+
+print(scrape_country("https://www.worldometers.info/coronavirus/", "Sweden", "TotalDeaths"))
