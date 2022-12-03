@@ -1,0 +1,12 @@
+First, the scrape_country function is called using the worldometer url and two optional 
+parameters (country and stat.) The function first uses datetime to determine the date, and
+the date is set in YYYY-MM-DD format. This is used to create a file name for a json file
+associated with the specific date. "os" is then used to see if the json file already exists.
+If it does not, "requests" is used to make the HTTP request and then beautiful soup is used
+to pull data out of the HTML file, specifically the table. A data frame is created using 
+pandas to read the information pulled out by beautiful soup. The information is then
+indexed by country, and rows labeled "Total:" are removed. Then the relevant data is taken
+from the data frame ("TotalDeaths", "NewDeaths", "Deaths/1M pop", "New Deaths/1M pop")
+and a dictionary is formed using the country index. A json file is then created. If the json
+file already exists, it is open and read. Then the input country and stat are used to return
+the specific stats requested by looking through the created dictionary.
